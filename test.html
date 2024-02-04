@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка пароля</title>
+    <style>
+        body {
+            background-image: url("https://static.wikia.nocookie.net/jjba/images/4/41/Jojodu13joseph.jpg/revision/latest?cb=20180827080728");
+            background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        .authenticated {
+            background-image: url("https://i.ibb.co/yRdnzNk/jojo-no-kimyo-na-boken-jojo-s-bizarre-adventure-anime-manga.png");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Да задачки же вообще изи, вписывай код:</h1>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Проверить</button>
+    <p id="message"></p>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "1218578344733") {
+                document.getElementById("message").innerHTML = "Супер! Код верен! Инсафу от Тёмы";
+                document.body.classList.add("authenticated"); // Добавляем класс при правильном пароле
+            } else {
+                document.getElementById("message").innerHTML = "не повезло, попробуй снова";
+            }
+        }
+
+        // Блокировка контекстного меню
+        document.oncontextmenu = function() {
+            return false;
+        };
+
+        // Отключение просмотра исходного кода
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 67)) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
